@@ -53,8 +53,11 @@
 
 	<body>
 		<a href="<?php echo $loginUrl; ?>">Se connecter</a>
-
-		<div style="margin-top: 150px;"
+		<br>
+		<br>
+		<br>
+		<br>
+		<div
 		  class="fb-like"
 		  data-share="true"
 		  data-width="450"
