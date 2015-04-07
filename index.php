@@ -17,7 +17,7 @@
 
 	FacebookSession::setDefaultApplication(APP_ID, APP_SECRET);
 
-	$helper = new FacebookRedirectLoginHelper('http://localhost/');
+	$helper = new FacebookRedirectLoginHelper('https://esginbaspurs.herokuapp.com/');
 	$loginUrl = $helper->getLoginUrl();
 	// Use the login url on a link or button to redirect to Facebook for authentication
 
@@ -54,12 +54,12 @@
 	<body>
 		<a href="<?php echo $loginUrl; ?>">Se connecter</a>
 
-		<!-- <div
+		<div style="margin-top: 150px;"
 		  class="fb-like"
 		  data-share="true"
 		  data-width="450"
 		  data-show-faces="true">
-		</div> -->
+		</div>
 
 	</body>
 
