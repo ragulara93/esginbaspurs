@@ -3,7 +3,7 @@
     ini_set("display_errors", 1);
     
     session_start();
-    require "facebook-php-sdk-v4-4.0/autoload.php";
+	require("facebook-php-sdk-v4-4.0-dev/autoload.php");
     use Facebook\FacebookSession;
     use Facebook\FacebookRedirectLoginHelper;
     use Facebook\FacebookRequest;
