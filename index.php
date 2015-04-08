@@ -72,13 +72,13 @@
             $response = $request->execute();
             //transform la data graphObject
             $user = $response->getGraphObject("Facebook\GraphUser");
-            echo "<pre>";
+           /* echo "<pre>";
             print_r($user);
-            echo "</pre>";
+            echo "</pre>";*/
         
           }else{
             $loginUrl = $helper->getLoginUrl();
-            echo "<a href='".$loginUrl."'>Se connecter</a>";
+            // echo "<a href='".$loginUrl."'>Se connecter</a>";
           }
             
         ?>
