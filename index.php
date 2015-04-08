@@ -52,6 +52,7 @@
 	</head>
 
 	<body>
+		<h2>Projet facebook</h2>
 		<a href="<?php echo $loginUrl; ?>">Se connecter</a>
 		<br><br><br>
 		<div
@@ -60,6 +61,8 @@
 		  data-width="450"
 		  data-show-faces="true">
 		</div>
+
+		<?php var_dump($) ?> 
 
 	</body>
 
