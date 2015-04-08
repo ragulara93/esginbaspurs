@@ -10,6 +10,7 @@
 
 	use Facebook\FacebookSession; /*on charge tout mais on les initialise pas. Ta inclu la page et maintenetant on l'initialise.*/
 	use Facebook\FacebookRedirectLoginHelper;
+	user Facebook\FacebookRequest;
 
 	//variable défini une seule fois et que l'on peu plus modifier
 	const APP_ID = "1556890417914830";
@@ -18,8 +19,21 @@
 	FacebookSession::setDefaultApplication(APP_ID, APP_SECRET);
 
 	$helper = new FacebookRedirectLoginHelper('https://esginbaspurs.herokuapp.com/');
-	$loginUrl = $helper->getLoginUrl();
+	// $loginUrl = $helper->getLoginUrl();
 	// Use the login url on a link or button to redirect to Facebook for authentication
+
+	if(isset($_SESSION) && isset($_SESSION['fb_token']) )
+	{
+		$session = $helper->new FacebookSession($_SESSION['fb_token']);
+	}
+	else
+	{
+		$session = $helper->getSessionFromRedirect();
+			// var_dump($session);
+			$token = (string) $session->getAccessToken();
+			$_SESSION['fb_token'] = $token;
+	}
+
 
 
 ?>
@@ -53,7 +67,7 @@
 
 	<body>
 		<h2>Projet facebook</h2>
-		<a href="<?php echo $loginUrl; ?>">Se connecter</a>
+		
 		<br><br><br>
 		<div
 		  class="fb-like"
@@ -62,7 +76,29 @@
 		  data-show-faces="true">
 		</div>
 
-		<?php //var_dump($) ?> 
+		<?php
+
+		if($session)
+		{
+			// Prepare la requête
+			$request = new FacebookRequest($session, 'GET', '/me');
+
+			// Exécute la requête
+			$response = $request->execute();
+
+			// Transforme en graphObject
+			$user = $response->getGraphObject("Facebook\GraphUser");
+
+		}
+		else
+		{
+			$loginUrl = $helper->getLoginUrl();
+			?>
+				<a href="<?php echo $loginUrl; ?>">Se connecter</a>
+			<?php
+		}
+
+		?> 
 
 	</body>
 
