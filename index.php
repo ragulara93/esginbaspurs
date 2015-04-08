@@ -48,7 +48,7 @@
         </script>
 
 
-        <h1>Mon application facebook</h1>
+        <h2>Mon application fb</h2>
 
         <div
           class="fb-like"
@@ -72,12 +72,13 @@
             $response = $request->execute();
             //transform la data graphObject
             $user = $response->getGraphObject("Facebook\GraphUser");
-           /* echo "<pre>";
+            echo "<pre>";
             print_r($user);
-            echo "</pre>";*/
+            echo "</pre>";
         
           }else{
             $loginUrl = $helper->getLoginUrl();
+            
             echo "<a href='".$loginUrl."'>Se connecter</a>";
           }
             
