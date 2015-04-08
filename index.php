@@ -62,7 +62,7 @@
 		  data-show-faces="true">
 		</div>
 
-		<?php var_dump($) ?> 
+		<?php //var_dump($) ?> 
 
 	</body>
 
